@@ -1,9 +1,8 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { NotFound } from './components/NotFound/NotFound';
-import { Counter } from './components/Counter';
-import { App } from './App';
+import { createBrowserRouter } from 'react-router-dom';
 import { Suspense } from 'react';
-import { HomeAsync } from './components/Home/Home.async';
+import { App } from '../App';
+import { Counter, HomeAsync, NotFound } from '@pages';
+// import { Counter, HomeAsync, NotFound } from '@page';
 
 export const routers = createBrowserRouter([
     {

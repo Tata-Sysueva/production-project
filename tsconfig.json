@@ -9,7 +9,15 @@
         "esModuleInterop": true, // включаем поддержку для совместимости между CommonJS и ES6 модулями. Позволяет использовать синтаксис импорта ES6 для модулей, экспортируемых с помощью CommonJS
         "allowSyntheticDefaultImports": true, // Эта настройка позволяет импортировать модули, которые не имеют экспортов по умолчанию, как если бы они их имели. Например, полезно для библиотек.
         "noImplicitAny": true, // не забываем указывать тип
-        "baseUrl": "." // для абсолютного импорта
+        "baseUrl": "./src/",
+        "paths": {
+          "@app": ["app"],
+          "@pages": ["pages"],
+          "@widgets": ["widgets"],
+          "@features": ["features"],
+          "@entities": ["entities"],
+          "@shared": ["shared"],
+        },
     },
     "ts-node": {
       "compilerOptions": {

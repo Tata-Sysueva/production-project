@@ -1,12 +1,11 @@
 import { Link, Outlet } from 'react-router-dom';
 
 import './styles/index.scss';
-import { useTheme } from './theme/useTheme';
-import ThemeProvider from './theme/ThemeProvider';
+import { useTheme } from './providers/ThemeProvider';
 
 export const App = () => {
     const {theme, toggleTheme} = useTheme();
-console.log('theme', theme)
+
     return (
 
             <div className={`app ${theme}`}>
