@@ -1,9 +1,8 @@
 import { Outlet } from 'react-router-dom';
 
 import './styles/index.scss';
-import { Sidebar } from 'widgets/Sidebar';
 import { useTheme } from '../shared/providers/ThemeProvider';
-import { Calculator } from '@features';
+import { Header, Sidebar } from '@widgets';
 
 export const App = () => {
     const { theme } = useTheme();
@@ -11,10 +10,12 @@ export const App = () => {
     return (
 
             <div className={`app ${theme}`}>
-                <Sidebar />
-                <Calculator />
-                <main>
-                    <Outlet /> {/* Здесь будут рендериться дочерние маршруты */}
+                <Header />
+                <main className="contentPage">
+                    <Sidebar />
+                    <div className="pageWrapper">
+                        <Outlet /> {/* Здесь будут рендериться дочерние маршруты */}
+                    </div>
                 </main>
             </div>
     )
