@@ -1,25 +1,18 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
 import './styles/index.scss';
-import { useTheme } from './providers/ThemeProvider';
+import { Sidebar } from 'widgets/Sidebar';
+import { useTheme } from '../shared/providers/ThemeProvider';
+import { Calculator } from '@features';
 
 export const App = () => {
-    const {theme, toggleTheme} = useTheme();
+    const { theme } = useTheme();
 
     return (
 
             <div className={`app ${theme}`}>
-                <button onClick={toggleTheme}>TOGGLE</button>
-                <nav>
-                    <ul>
-                        <li>
-                            <Link to="/">Home</Link>
-                        </li>
-                        <li>
-                            <Link to="/home">About</Link>
-                        </li>
-                    </ul>
-                </nav>
+                <Sidebar />
+                <Calculator />
                 <main>
                     <Outlet /> {/* Здесь будут рендериться дочерние маршруты */}
                 </main>

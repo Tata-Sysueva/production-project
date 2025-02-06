@@ -3,12 +3,31 @@ import webpack from "webpack";
 import { BuildOptions } from "./types/config";
 
 export const buildLoaders = ({ isDev }: BuildOptions): webpack.RuleSetRule[] => {
+    const assertsLoader = [
+        {
+            test: /\.(png|jpe?g|gif)$/i,
+            type: 'asset',
+        },
+        {
+            test: /\.(woff|woff2|eot|ttf|otf)$/i,
+            type: 'asset',
+        },
+        {
+            test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)$/i,
+            type: 'asset/resource',
+        },
+    ];
+
+    const svgLoader = {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        use: ['@svgr/webpack', 'url-loader'],
+    };
+    
     const cssLoader = {
         test: /\.s[ac]ss$/i,
         use: [
-            // Creates `style` nodes from js strings
-            isDev ? 'style-loader' : MiniCssExtractPlugin.loader, // Использование style-loader в разработке ускоряет процесс разработки, а MiniCssExtractPlugin.loader в продакшн-сборке улучшает производительность
-            // Translates CSS into CommonJS
+            isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
             {
                 loader: 'css-loader',
                 options: {
@@ -20,19 +39,21 @@ export const buildLoaders = ({ isDev }: BuildOptions): webpack.RuleSetRule[] => 
                     },
                 }
             },
-            // Compiles Sass to CSS
             'sass-loader',
         ]
     };
     
     const typescriptLoader = {
-        test: /\.tsx?$/, // указываем, какие файлы будут обрабатываться данным правилом
-        use: 'ts-loader', // указываем, какой загрузчик (loader) будет использоваться для обработки файлов (обработает и ts и tsx)
-        exclude: /node_modules/, //  указываем, какие файлы или директории следует исключить из обработки
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
     };
 
     return [
         typescriptLoader,
         cssLoader,
-    ] // набор правил для обработки файлов
+        svgLoader,
+        ...assertsLoader,
+    ];
 };
+

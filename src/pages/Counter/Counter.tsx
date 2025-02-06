@@ -3,7 +3,7 @@ import styles from './Counter.module.scss';
 
 export const Counter = () => {
     const [count, setCount] = useState(0);
-console.log('styles', styles)
+
     const increment = () => {
         setCount(count + 1);
     }

@@ -1,3 +1,3 @@
 export { Counter } from './Counter';
-export { HomeAsync } from './Home';
+export { Home } from './Home';
 export { NotFound } from './NotFound';

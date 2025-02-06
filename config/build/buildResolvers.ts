@@ -4,7 +4,7 @@ import path from "path";
 
 export const buildResolvers = (options: BuildOptions): ResolveOptions => {
     return {
-        extensions: ['.tsx', '.ts', '.js'], // указываем, какие файлы мы импортируем без описания расширения. напр. './component'
+        extensions: ['.tsx', '.jsx', '.ts', '.js'], // указываем, какие файлы мы импортируем без описания расширения. напр. './component'
         modules: [options.paths.src, 'node_modules'],
         mainFiles: ['index'],
         alias: {

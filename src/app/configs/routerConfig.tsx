@@ -1,12 +1,12 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { Suspense } from 'react';
+import { Counter, Home, NotFound } from '@pages';
 import { App } from '../App';
-import { Counter, HomeAsync, NotFound } from '@pages';
-// import { Counter, HomeAsync, NotFound } from '@page';
+import { RoutePath } from 'shared/helpers/routers.interfaces';
 
-export const routers = createBrowserRouter([
+export const routerConfig = createBrowserRouter([
     {
-        path: '/',
+        path: RoutePath.main,
         element: <App />, // Используем App как обертку
         errorElement: <NotFound />, // Обработка ошибок
         children: [
@@ -15,10 +15,10 @@ export const routers = createBrowserRouter([
                 element: <Counter />,
             },
             {
-                path: '/home',
+                path: RoutePath.home,
                 element: (
                     <Suspense fallback="Loading home.." >
-                        <HomeAsync />
+                        <Home />
                     </Suspense>
                 ),
             },
