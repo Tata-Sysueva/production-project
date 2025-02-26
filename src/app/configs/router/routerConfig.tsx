@@ -1,8 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { Suspense } from 'react';
 import { Counter, Home, NotFound } from '@pages';
-import { App } from '../App';
-import { RoutePath } from 'shared/helpers/routers.interfaces';
+import { App } from '../../App';
+import { RoutePath } from 'shared/helpers/interfaces/routers.interfaces';
 
 export const routerConfig = createBrowserRouter([
     {

@@ -3,7 +3,7 @@ import webpack from "webpack";
 import { BuildOptions } from "./types/config";
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'; // позволяет извлекать CSS из JavaScript-файлов в отдельные файлы, полезно для оптимизации загрузки стилей (параллельно с др ресурсами и минимизировано в продакшн))
 
-export const buildPlugins = ({ paths }: BuildOptions): webpack.WebpackPluginInstance[] => {
+export const buildPlugins = ({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] => {
     return [
         new webpack.ProgressPlugin(), // отслеживает степень «готовности» сборки
         new HtmlWebpackPlugin({
@@ -13,5 +13,8 @@ export const buildPlugins = ({ paths }: BuildOptions): webpack.WebpackPluginInst
             filename: 'css/[name].[contenthash:8].css',
             chunkFilename: 'css/[name].[contenthash:8].css', // понадобится. когда будем разбивать файлы на асинхронные и у нас появятся отдельные чанки, к-е будут асинхронно подгружаться
         }),
+        new webpack.DefinePlugin({
+            IS_DEV: JSON.stringify(isDev),
+        })
     ];
 }

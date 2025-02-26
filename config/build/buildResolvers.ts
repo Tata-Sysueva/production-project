@@ -14,6 +14,7 @@ export const buildResolvers = (options: BuildOptions): ResolveOptions => {
             '@features': path.resolve(__dirname, '../../src/features/'),
             '@entities': path.resolve(__dirname, '../../src/entities/'),
             '@shared': path.resolve(__dirname, '../../src/shared/'),
+            '@locales': path.resolve(__dirname, '../../src/locales/'),
         },
     };
 };
