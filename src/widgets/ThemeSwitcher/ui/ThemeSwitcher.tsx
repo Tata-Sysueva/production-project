@@ -1,8 +1,9 @@
 import classNames from 'classnames';
-import styles from './ThemeSwitcher.module.scss';
+import { ReactComponent as ThemeIcon} from 'shared/assets/icons/theme.svg'
 import { useTheme } from 'shared/providers/ThemeProvider';
 import { Button, ThemeButton } from 'shared/ui';
-import { ReactComponent as ThemeIcon} from 'shared/assets/icons/theme.svg'
+
+import styles from './ThemeSwitcher.module.scss';
 
 
 interface ThemeSwitcherProps {

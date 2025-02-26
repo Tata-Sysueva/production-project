@@ -1,5 +1,3 @@
-import { Calculator } from "@features";
-
 const Home = () => {
     return (
         <div> 

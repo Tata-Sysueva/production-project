@@ -1,11 +1,10 @@
+import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-
 import './styles/index.scss';
 import { useTheme } from 'shared/providers/ThemeProvider';
-import { Header, Sidebar } from '@widgets';
+import { Header, Sidebar } from 'widgets';
 
 import 'shared/configs/i18n/i18n';
-import { Suspense } from 'react';
 
 export const App = () => {
     const { theme } = useTheme();

@@ -1,10 +1,11 @@
-import { useState } from 'react';
-import styles from './Sidebar.module.scss';
-import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import classNames from 'classnames';
-import { Button } from 'shared/ui';
-import { LANGUAGES } from 'shared/constants/i18n.constants';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { LANGUAGES } from 'shared/constants/i18n.constants';
+import { Button } from 'shared/ui';
+import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
+
+import styles from './Sidebar.module.scss';
 
 export const Sidebar = () => {
     const [collapsed, setCollapsed] = useState(false);
