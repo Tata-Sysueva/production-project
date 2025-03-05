@@ -4,7 +4,6 @@ import pluginReact from "eslint-plugin-react";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
-/** @type {import('eslint').Linter.Config[]} */
 export default [
     {
         files: ['**/*.{ts,tsx}'],
@@ -25,6 +24,38 @@ export default [
     importPlugin.flatConfigs.recommended,
     {
         rules: {
+            "css/property-sort-order": [
+                "error",
+                {
+                  "order": [
+                    "position",
+                    "top",
+                    "right",
+                    "bottom",
+                    "left",
+                    "display",
+                    "flex",
+                    "align-items",
+                    "justify-content",
+                    "gap",
+                    "width",
+                    "height",
+                    "margin",
+                    "padding",
+                    "background",
+                    "color",
+                    "font",
+                    "border"
+                  ],
+                  "unspecified": "bottom"
+                }
+            ],
+            "css/no-duplicate-selectors": "error",
+            "css/no-shorthand-property-overrides": "warn",  
+            "css/no-empty-rules": "error",
+            "css/no-unknown-unit": "error",  
+            "css/no-unused-selectors": "error",    
+            "css/no-duplicate-properties": "error",   
             "no-unused-vars": "warn",
             '@typescript-eslint/camelcase': [0, 'error', { properties: 'never', allow: ['UNSAFE_componentWillMount'] }],
             '@typescript-eslint/no-unused-vars': 2,
