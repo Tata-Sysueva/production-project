@@ -22,7 +22,8 @@
     },
     "ts-node": {
       "compilerOptions": {
-        "module": "CommonJS" // определяем, как будет выполняться TypeScript-код непосредственно в Node.js без предварительной компиляции в JavaScript
+        "module": "CommonJS", // определяем, как будет выполняться TypeScript-код непосредственно в Node.js без предварительной компиляции в JavaScript
+        "types": ["node", "jest", "@testing-library/jest-dom"],
       }
     }
 }
