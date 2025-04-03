@@ -8,11 +8,12 @@ import { App } from '../../App';
 export const routerConfig = createBrowserRouter([
     {
         path: RoutePath.main,
-        element: <App />, // Используем App как обертку
-        errorElement: <NotFound />, // Обработка ошибок
+        element: (
+                    <App />
+            ),
         children: [
             {
-                index: true, // Это будет путь по умолчанию для "/"
+                index: true,
                 element: <Counter />,
             },
             {
@@ -22,6 +23,10 @@ export const routerConfig = createBrowserRouter([
                         <Home />
                     </Suspense>
                 ),
+            },
+            {
+                path: "*",
+                element: <NotFound />,
             },
         ],
     },

@@ -15,6 +15,7 @@ export const buildWebpackConfig = (options: BuildOptions): webpack.Configuration
         output: {
             filename: "[name].[contenthash].js", // шаблон, чтобы 1) имя собранного файла совпадал с названием файла в entry или вообще указывать разные имена, если в entry объект с разными точками, для эффективного кеширования браузерами, чтобы загружал новую версию файла, вместо закешированной
             path: paths.build,
+            publicPath: '/',
             clean: true, //очищаем ненужные файлы
         }, // указываем, где будет находиться файл со сборкой проекта и как он будет называться
         plugins: buildPlugins(options), // плагины (объекты классы JS) расширяют функциональность Webpack
